@@ -32,9 +32,9 @@ authenticationRoute(app);
 
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static(path.resolve(__dirname,'../../dist')))
-  app.get('/*',(req,res=>{
+  app.get('/*',(req,res)=>{
     res.send(path.resolve('index.html'));
-  }));
+  });
 }
 
 export const addNewTask = async task => {
@@ -79,11 +79,3 @@ app.post('/task/update', async (req,res)=>{
   await updateTask(task);
   res.status(200).send();
 });
-
-/*
-app.post('/authenticate', async (req,res)=>{
-  let userInfo = req.body.userInfo;
-  let isVerified = await verifyUser(userInfo.username,userInfo.password);
-  res.status(200).send(isVerified);
-});
-*/
