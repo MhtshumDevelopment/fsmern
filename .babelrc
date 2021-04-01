@@ -9,7 +9,8 @@
         }
       }
     ]
-  ]
+  ],
+  "plugins": ["syntax-object-rest-spread"]             
 }
 /* for latest features inside current is used both will compile for es6 & react for jsx files
 below is also working syntax

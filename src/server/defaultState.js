@@ -1,15 +1,23 @@
+import { hashString } from './hashUtility';
+/* remember session obj. can'nt, so when using first time for new db as it would be inserted bulk wise and that method expecting array not a single obj. then delete this one */
 export const defaultState = {
+  session:{
+    authenticated : false  
+  },
   users:[{
     id:"u1",
-    name:"dev"
+    name:"dev",
+    passwordHash: hashString("Tuples")
   },
   {
     id:"u2",
-    name:"ali"
+    name:"ali",
+    passwordHash: hashString("KaramAllahWajoh")
   },
   {
     id:"u3",
-    name:"usman"
+    name:"usman",
+    passwordHash: hashString("Ghani")
   }],
   groups:[{
     id:"g1",
