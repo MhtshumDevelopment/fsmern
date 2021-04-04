@@ -11,7 +11,7 @@ import './initialize-db';
 const app = express();
 const port = process.env.PORT || 7070;
 
-app.listen(port,console.log('listening on ',port));
+app.listen(port,console.log(`listening on ${port} and is ${process.env.NODE_ENV}`));
 
 /*
 app.get('/',(req,res)=>{
@@ -33,7 +33,7 @@ authenticationRoute(app);
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static(path.resolve(__dirname,'../../dist')))
   app.get('/*',(req,res)=>{
-    res.send(path.resolve('index.html'));
+    res.sendFile(path.resolve('index.html'));
   });
 }
 
